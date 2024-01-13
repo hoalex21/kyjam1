@@ -1,14 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://d007a861rr5va"]
+[gd_scene load_steps=7 format=3 uid="uid://d007a861rr5va"]
 
 [ext_resource type="Script" path="res://purple_guy.gd" id="1_nsiit"]
 [ext_resource type="Texture2D" uid="uid://dpuv7hhc33wqn" path="res://purple_guy.png" id="1_s6jao"]
+[ext_resource type="Texture2D" uid="uid://dosfl212glrfr" path="res://purple_guy_left.png" id="3_naugx"]
+[ext_resource type="Texture2D" uid="uid://dpo4ypj1j4ene" path="res://purple_guy_right.png" id="4_r24qi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_db8h0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3kvbw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s6jao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_naugx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_s6jao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r24qi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="PurpleGuy" type="CharacterBody2D"]
 scale = Vector2(3, 3)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_nsiit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,10 +38,11 @@ position = Vector2(-1.9, 2.08165e-12)
 scale = Vector2(0.7, 0.4)
 shape = SubResource("RectangleShape2D_db8h0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("1_s6jao")
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 debug_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.25, 1.25)
+sprite_frames = SubResource("SpriteFrames_3kvbw")
+animation = &"walk"
