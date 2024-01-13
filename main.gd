@@ -58,7 +58,6 @@ func generate_rooms():
 	]
 	
 	var i = 0
-	var ladder = 1
 	
 	var num: int
 	
@@ -71,19 +70,11 @@ func generate_rooms():
 						if num < 4:
 							dungeon[j-1][k] = true
 							i += 1
-						elif ladder == 1 and j not in [3, 4, 5] and k not in [3, 4, 5]:
-							dungeon[j-1][k] = "ladder"
-							ladder -= 1
-							i += 1
 					
 					if j < 9:
 						num = randi_range(0, 5)
 						if num < 4:
 							dungeon[j+1][k] = true
-							i += 1
-						elif ladder == 1 and j not in [3, 4, 5] and k not in [3, 4, 5]:
-							dungeon[j-1][k] = "ladder"
-							ladder -= 1
 							i += 1
 					
 					if k > 0:
@@ -91,22 +82,27 @@ func generate_rooms():
 						if num < 4:
 							dungeon[j][k-1] = true
 							i += 1
-						elif ladder == 1 and j not in [3, 4, 5] and k not in [3, 4, 5]:
-							dungeon[j-1][k] = "ladder"
-							ladder -= 1
-							i += 1
 					
 					if k < 9:
 						num = randi_range(0, 5)
 						if num < 4:
 							dungeon[j][k+1] = true
 							i += 1
-						elif ladder == 1 and j not in [3, 4, 5] and k not in [3, 4, 5]:
-							dungeon[j-1][k] = "ladder"
-							ladder -= 1
-							i += 1
+	
+	var ladder = 1
+	while ladder > 0:
+		for j in dungeon.size():
+			for k in dungeon[j].size():
+				if dungeon[j][k] == true:
+					num = randi_range(0, 20)
+					if num == 0 and j != 4 and k != 4:
+						dungeon[j][k] = "ladder"
+						ladder -= 1
+						break
+			if ladder < 1:
+				break
 
-	for j in dungeon[0].size():
+	for j in dungeon.size():
 		for k in dungeon[j].size():
 			var current_room = dungeon[j][k]
 			if current_room:
@@ -188,7 +184,7 @@ func instantiate_room(ref, j, k, current_room_value):
 			ladder.position = room.position
 			add_child(ladder)
 			move_child(ladder, $Player.get_index())
-	elif j not in [-1, 0, 1] and k not in [-1, 0, 1]:
+	elif j != 0 and k != 0:
 		var num = randi_range(0, 1)
 		if num == 0:
 			var purple_guy = PURPLE_GUY.instantiate()
