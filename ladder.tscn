@@ -6,7 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4x18"]
 
 [node name="Ladder" type="RigidBody2D"]
+collision_layer = 8
 gravity_scale = 2.66454e-15
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_y7kdp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -15,3 +18,5 @@ shape = SubResource("RectangleShape2D_r4x18")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_0m5xn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,3 +10,8 @@ func _ready():
 func _process(delta):
 	pass
 
+
+func _on_body_entered(body):
+	print(body)
+	if body.is_in_group("player"):
+		get_tree().reload_current_scene()
