@@ -22,5 +22,4 @@ func _process(delta):
 		direction = direction.normalized()
 	
 	velocity = direction * SPEED
-	
 	move_and_slide()
