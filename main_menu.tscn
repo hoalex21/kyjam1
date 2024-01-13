@@ -42,11 +42,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Start"
 
-[node name="Security Violation" type="Label" parent="CanvasLayer"]
+[node name="Safety Violation" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
 theme = ExtResource("1_ltfit")
 theme_override_font_sizes/font_size = 32
-text = "Security Violation"
+text = "Safety Violation"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
