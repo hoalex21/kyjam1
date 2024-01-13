@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d007a861rr5va"]
+[gd_scene load_steps=4 format=3 uid="uid://d007a861rr5va"]
 
+[ext_resource type="Script" path="res://purple_guy.gd" id="1_nsiit"]
 [ext_resource type="Texture2D" uid="uid://dpuv7hhc33wqn" path="res://purple_guy.png" id="1_s6jao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_db8h0"]
 
 [node name="PurpleGuy" type="CharacterBody2D"]
 scale = Vector2(3, 3)
+script = ExtResource("1_nsiit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.9, 2.08165e-12)
@@ -15,3 +17,5 @@ shape = SubResource("RectangleShape2D_db8h0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_s6jao")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
