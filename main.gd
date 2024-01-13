@@ -35,12 +35,14 @@ const LADDER = preload("res://ladder.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$GameOver.hide()
 	generate_rooms()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if not $Player.alive and not $GameOver.visible:
+		$GameOver.show()
 
 
 func generate_rooms():

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3vju82shweug"]
+[gd_scene load_steps=5 format=3 uid="uid://c3vju82shweug"]
 
 [ext_resource type="PackedScene" uid="uid://c0fb8f6tayxab" path="res://player.tscn" id="1_i4qhb"]
 [ext_resource type="Script" path="res://main.gd" id="1_n4gfi"]
+[ext_resource type="Script" path="res://GameOver.gd" id="3_7vhi1"]
+[ext_resource type="Theme" uid="uid://bemyadjlfn4x8" path="res://main_menu.tres" id="3_bsqix"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_n4gfi")
@@ -9,3 +11,40 @@ script = ExtResource("1_n4gfi")
 [node name="Player" parent="." instance=ExtResource("1_i4qhb")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+script = ExtResource("3_7vhi1")
+
+[node name="Label" type="Label" parent="GameOver"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme = ExtResource("3_bsqix")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 64
+text = "GameOver"
+
+[node name="Button" type="Button" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -16.0
+offset_right = 112.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_bsqix")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[connection signal="pressed" from="GameOver/Button" to="GameOver" method="_on_button_pressed"]
