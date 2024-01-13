@@ -17,8 +17,8 @@ script = ExtResource("1_rwvo0")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_left = 437.0
-offset_right = 1243.0
-offset_bottom = 862.0
+offset_right = 1178.0
+offset_bottom = 723.0
 texture = ExtResource("2_p43qr")
 flip_h = true
 

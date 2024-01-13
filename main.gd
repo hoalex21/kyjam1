@@ -49,11 +49,7 @@ func generate_rooms():
 	var dungeon = [
 		[null, null, null, null, null, null, null, null, null, null],
 		[null, null, null, null, null, null, null, null, null, null],
-		[null, null, null, null, null, null, null, null, null, null],
-		[null, null, null, null, null, null, null, null, null, null],
 		[null, null, null, null, true, null, null, null, null, null],
-		[null, null, null, null, null, null, null, null, null, null],
-		[null, null, null, null, null, null, null, null, null, null],
 		[null, null, null, null, null, null, null, null, null, null],
 		[null, null, null, null, null, null, null, null, null, null],
 	]
@@ -62,7 +58,7 @@ func generate_rooms():
 	
 	var num: int
 	
-	while i < 50:
+	while i < 25:
 		for j in dungeon.size():
 			for k in dungeon[j].size():
 				if dungeon[j][k]:
@@ -172,7 +168,7 @@ func generate_rooms():
 
 
 func instantiate_room(ref, j, k, current_room_value):
-	j -= 4
+	j -= 2
 	k -= 4
 	var room = ref.instantiate()
 	room.position = Vector2(-448 * j, -448 * k)
