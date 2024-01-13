@@ -54,38 +54,37 @@ func generate_rooms():
 		[null, null, null, null, null, null, null, null, null, null],
 		[null, null, null, null, null, null, null, null, null, null],
 		[null, null, null, null, null, null, null, null, null, null],
-		[null, null, null, null, null, null, null, null, null, null],
 	]
 	
 	var i = 0
 	
 	var num: int
 	
-	while i < 30:
+	while i < 50:
 		for j in dungeon.size():
 			for k in dungeon[j].size():
 				if dungeon[j][k]:
 					if j > 0:
 						num = randi_range(0, 5)
-						if num < 4:
+						if num < 2:
 							dungeon[j-1][k] = true
 							i += 1
 					
-					if j < 9:
+					if j < dungeon.size() - 1:
 						num = randi_range(0, 5)
-						if num < 4:
+						if num < 2:
 							dungeon[j+1][k] = true
 							i += 1
 					
 					if k > 0:
 						num = randi_range(0, 5)
-						if num < 4:
+						if num < 2:
 							dungeon[j][k-1] = true
 							i += 1
 					
-					if k < 9:
+					if k < dungeon[j].size() - 1:
 						num = randi_range(0, 5)
-						if num < 4:
+						if num < 2:
 							dungeon[j][k+1] = true
 							i += 1
 	
@@ -118,7 +117,7 @@ func generate_rooms():
 					if dungeon[j-1][k]:
 						doors += 1
 						left = true
-				if j < 9:
+				if j < dungeon.size() - 1:
 					if dungeon[j+1][k]:
 						doors += 1
 						right = true
@@ -126,7 +125,7 @@ func generate_rooms():
 					if dungeon[j][k-1]:
 						doors += 1
 						up = true
-				if k < 9:
+				if k < dungeon[j].size() - 1:
 					if dungeon[j][k+1]:
 						doors += 1
 						down = true
