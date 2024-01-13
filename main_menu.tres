@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bemyadjlfn4x8"]
+
+[ext_resource type="FontFile" uid="uid://dytqaq5hque8h" path="res://PressStart2P-Regular.ttf" id="1_an3n7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxqui"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afyxj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4llw1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bysdr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_an3n7")
+Button/styles/focus = SubResource("StyleBoxFlat_vxqui")
+Button/styles/hover = SubResource("StyleBoxFlat_afyxj")
+Button/styles/normal = SubResource("StyleBoxFlat_4llw1")
+Button/styles/pressed = SubResource("StyleBoxFlat_bysdr")

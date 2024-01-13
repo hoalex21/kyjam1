@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://do6ifl6egw3q1"]
+
+[ext_resource type="Theme" uid="uid://bemyadjlfn4x8" path="res://main_menu.tres" id="1_ltfit"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_rwvo0"]
+[ext_resource type="Texture2D" uid="uid://dpuv7hhc33wqn" path="res://purple_guy.png" id="2_p43qr"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwvo0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ltfit")
+alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Start"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 437.0
+offset_right = 1077.0
+offset_bottom = 712.0
+texture = ExtResource("2_p43qr")
+flip_h = true
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
