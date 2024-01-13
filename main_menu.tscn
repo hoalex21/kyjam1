@@ -17,8 +17,8 @@ script = ExtResource("1_rwvo0")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_left = 437.0
-offset_right = 1077.0
-offset_bottom = 712.0
+offset_right = 1243.0
+offset_bottom = 862.0
 texture = ExtResource("2_p43qr")
 flip_h = true
 
@@ -43,10 +43,10 @@ theme_override_font_sizes/font_size = 36
 text = "Start"
 
 [node name="Safety Violation" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 512.0
+offset_bottom = 35.0
 theme = ExtResource("1_ltfit")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 38
 text = "Safety Violation"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Start" to="." method="_on_start_pressed"]
